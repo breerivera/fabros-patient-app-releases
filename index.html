@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fabros Companion – install</title>
+<meta name="description" content="Install Fabros Companion, the parent app of Fabros Children's Clinic, on an Android phone.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{--bg:#f3f7f7;--card:#fff;--text:#1f2937;--muted:#5b6670;--brand:#0f766e;--brand-text:#fff;--line:#d8e3e2;--note:#fff7e0;--note-text:#6b4e00}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1a19;--card:#15292a;--text:#e8f1f0;--muted:#a3b5b3;--brand:#2dd4bf;--brand-text:#06201d;--line:#27403f;--note:#33290d;--note-text:#f3d98a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:34rem;margin:0 auto;padding:24px 16px 40px}
+header{text-align:center;margin-bottom:20px}
+header img{width:96px;height:96px;border-radius:22px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+h1{font-size:1.7rem;margin:12px 0 0}
+.sub{color:var(--muted);margin:2px 0 0}
+.ver{display:inline-block;margin-top:10px;padding:2px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:16px 0}
+.btn{display:block;text-align:center;background:var(--brand);color:var(--brand-text);font-weight:700;font-size:1.15rem;text-decoration:none;padding:16px;border-radius:14px}
+.btn:focus-visible{outline:3px solid var(--text);outline-offset:2px}
+ol{padding-left:1.3rem;margin:.4rem 0 0}li{margin:.6rem 0}
+h2{font-size:1.1rem;margin:0 0 4px}
+.note{background:var(--note);color:var(--note-text);border-radius:12px;padding:10px 14px;font-size:.95rem}
+small,.small{color:var(--muted);font-size:.92rem}
+a{color:var(--brand)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <img src="icon.png" alt="Fabros Companion icon: a white letter F on teal" width="96" height="96">
+  <h1>Fabros Companion</h1>
+  <p class="sub">Fabros Patient Companion App</p>
+  <span class="ver" id="ver">Latest version</span>
+</header>
+
+<a class="btn" id="dl" href="https://github.com/breerivera/fabros-patient-app-releases/releases/latest/download/FabrosCompanion.apk">Download the app</a>
+<p class="small" style="text-align:center;margin:8px 0 0">Android 7.0 or newer · file <b>FabrosCompanion.apk</b></p>
+
+<section class="card">
+  <h2>Install in 3 steps</h2>
+  <ol>
+    <li><b>Download</b> the app with the button above. If the phone asks, tap <b>Download</b> or <b>Keep</b>.</li>
+    <li><b>Allow the install.</b> Tap the downloaded file. If Android says it blocked the install, tap <b>Settings</b> and turn on <b>Allow from this source</b> (also called <b>Install unknown apps</b>) for the app you downloaded with, such as Chrome. Then go back.</li>
+    <li>Tap <b>Install</b>. If Google Play Protect warns about an unknown app, tap <b>More details</b>, then <b>Install anyway</b>. This is normal: the app is not on the Play Store.</li>
+  </ol>
+  <p class="small">Then open <b>Fabros Companion</b> and sign in with the account the clinic made for you.</p>
+</section>
+
+<section class="card">
+  <h2>Privacy</h2>
+  <p style="margin:.3rem 0">For parents and guardians of Fabros Children's Clinic patients. Only you and the clinic can see your child's records. No ads. No tracking.</p>
+  <p class="note" style="margin:.6rem 0 0">Test version — sample data only.</p>
+</section>
+
+<section class="card">
+  <h2>Need help?</h2>
+  <p style="margin:.3rem 0">Call the clinic: <a href="tel:+639632004925">0963 200 4925</a></p>
+</section>
+
+<p class="small" style="text-align:center">Updating? Download again and install over the old app; your information stays.</p>
+</main>
+<script>
+// The version comes from the public GitHub release list; if that fails the page still works.
+(function(){
+  var el=document.getElementById('ver');
+  try{
+    fetch('https://api.github.com/repos/breerivera/fabros-patient-app-releases/releases/latest',{headers:{'Accept':'application/vnd.github+json'}})
+      .then(function(r){return r.ok?r.json():Promise.reject();})
+      .then(function(j){if(j&&j.tag_name){el.textContent='Version '+String(j.tag_name).replace(/^v/,'');}})
+      .catch(function(){});
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

@@ -4,6 +4,14 @@ The full name of the app is **Fabros Patient Companion App**. On the phone it is
 
 Parent app of Fabros Children's Clinic. This is a **test build** that uses the clinic's sample (TEST) data.
 
+## Install page
+
+A friendlier page with the steps: <https://breerivera.github.io/fabros-patient-app-releases/>
+
+![QR code for the install page](fabros-install-page-qr.png)
+
+(The QR code below, which downloads the app directly, keeps working.)
+
 ## Install
 
 Scan this code with the phone's camera, or open the link on the phone:
